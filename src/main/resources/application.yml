@@ -1,0 +1,10 @@
+server:
+  port: 9001
+  tomcat:
+    connection-timeout: 2s # Time to wait for an HTTP request after connection haave been made
+    keep-alive-timeout: 15s # How long to keep a connection open while waiting for new HTTP requests
+    threads:
+      max: 50 # Maximum number of request processing threads
+      min-spare: 5 # Minimum number of threads that should be kept running
+    accept-count: 20
+    max-http-form-post-size: 5MB
