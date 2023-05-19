@@ -21,7 +21,7 @@ jobs:
         id: scan
         with:
           path: "${{ github.workspace }}"
-          fail-build: false
+          fail-build: true
           security-cutoff:  high
           acs-report-enable:  true
       - name: Upload vulnerability report
