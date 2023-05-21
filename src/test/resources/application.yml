@@ -1,0 +1,6 @@
+worlddev:
+  greeting: Welcome to the local worldDev book catalog from test
+spring:
+  cloud:
+    config:
+      enabled: false
