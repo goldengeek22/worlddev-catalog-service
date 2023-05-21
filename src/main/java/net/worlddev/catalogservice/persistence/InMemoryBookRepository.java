@@ -39,6 +39,13 @@ public class InMemoryBookRepository implements BookRepository {
     }
 
     @Override
+    public void saveAll(Iterable<Book> books) {
+        for (Book book: books){
+            save(book);
+        }
+    }
+
+    @Override
     public void deleteByIsbn(String isbn) {
         books.remove(isbn);
     }
