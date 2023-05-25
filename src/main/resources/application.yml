@@ -30,6 +30,13 @@ spring:
         initial-interval: 1000
         max-interval: 5000
       fail-fast: true
+  datasource:
+    username: user
+    password: password
+    url: jdbc:postgresql://localhost:5445/worlddev_catalog
+    hikari:
+      connection-timeout: 5000
+      maximum-pool-size: 5
 
 management:
   endpoints:

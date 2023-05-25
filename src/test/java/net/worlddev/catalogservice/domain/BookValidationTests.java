@@ -26,14 +26,14 @@ public class BookValidationTests {
 
     @Test
     void whenAllFieldsCorrectThenValidationSucceeds(){
-        var book = new Book("9781837634934","How to Build Android Apps with Kotlin - Second Edition","Alex Forrester",35.99);
+        var book = Book.of("9781837634934","How to Build Android Apps with Kotlin - Second Edition","Alex Forrester",35.99);
         Set<ConstraintViolation<Book>> violations = validator.validate(book);
         assertEquals(0,violations.size());
     }
 
     @Test
     void whenIsbnDefinedButIncorrectThenValidationFails(){
-        var book = new Book("978l837634934","How to Build Android Apps with Kotlin - Second Edition","Alex Forrester",35.99);
+        var book = Book.of("978l837634934","How to Build Android Apps with Kotlin - Second Edition","Alex Forrester",35.99);
         Set<ConstraintViolation<Book>> violations = validator.validate(book);
         assertEquals(1,violations.size());
         assertEquals("The ISBN format must be valid.", violations.iterator().next().getMessage());
