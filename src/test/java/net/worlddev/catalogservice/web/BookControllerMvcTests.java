@@ -40,7 +40,7 @@ class BookControllerMvcTests {
 
     @Test
     void whenAddingAndNotExistsThenShouldReturn201() throws Exception{
-        Book alexForresterBook = new Book("9781837634934", "How to Build Android Apps with Kotlin - Second Edition", "Alex Forrester", 35.99);
+        Book alexForresterBook = Book.of("9781837634934", "How to Build Android Apps with Kotlin - Second Edition", "Alex Forrester", "PacktPub",35.99);
         mockMvc.perform(post("/books")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(alexForresterBook)))

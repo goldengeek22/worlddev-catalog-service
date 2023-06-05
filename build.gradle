@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.0.6'
     id 'io.spring.dependency-management' version '1.1.0'
+    id "org.flywaydb.flyway" version "9.8.1"
 }
 
 group = 'net.worlddev'
@@ -15,31 +16,56 @@ repositories {
 
 ext{
     set('springCloudVersion', "2022.0.3-SNAPSHOT")
+    set('testcontainersVersion', "1.17.3")
 }
 configurations {
     compileOnly{
         extendsFrom annotationProcessor
     }
 }
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5445/worlddev_catalog'
+    user = 'user'
+    password = 'password'
+}
+
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.retry:spring-retry'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.flywaydb:flyway-core'
+    runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+    testImplementation 'org.testcontainers:postgresql'
 }
 
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
     }
 }
 
 bootRun{
     systemProperty 'spring.profiles.active', 'testdata'
+}
+
+bootBuildImage{
+    imageName = "worlddev-".concat(project.name)
+    environment = ["BP_JVM_VERSION":"17.*"]
+    docker {
+        publishRegistry{
+            username = project.findProperty("registryUsername")
+            password = project.findProperty("registryToken")
+            url = project.findProperty("registryUrl")
+        }
+    }
 }
 
 tasks.named('test') {
