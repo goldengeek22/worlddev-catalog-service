@@ -38,9 +38,10 @@ class BookJsonTests {
                     "isbn":"1234567890",
                     "title":"Eleventy by Example",
                     "author":"Bryan Robinson",
+                    "publisher":"PacktPub",
                     "price":21.99
                 }
                 """;
-        assertThat(bookJsonTester.parse(bookInJson)).usingRecursiveComparison().isEqualTo(Book.of("1234567890","Eleventy by Example","Bryan Robinson",21.99));
+        assertThat(bookJsonTester.parse(bookInJson)).usingRecursiveComparison().isEqualTo(Book.of("1234567890","Eleventy by Example","Bryan Robinson","PacktPub",21.99));
     }
 }
