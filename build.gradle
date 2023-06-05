@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.0.6'
     id 'io.spring.dependency-management' version '1.1.0'
+    id "org.flywaydb.flyway" version "9.8.1"
 }
 
 group = 'net.worlddev'
@@ -22,6 +23,13 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5445/worlddev_catalog'
+    user = 'user'
+    password = 'password'
+}
+
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.retry:spring-retry'

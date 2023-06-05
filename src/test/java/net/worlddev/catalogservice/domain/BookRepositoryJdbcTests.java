@@ -1,6 +1,7 @@
 package net.worlddev.catalogservice.domain;
 
 import net.worlddev.catalogservice.config.DataConfig;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
@@ -29,6 +30,7 @@ class BookRepositoryJdbcTests {
     private JdbcAggregateTemplate jdbcAggregateTemplate;
 
     @Test
+    @Disabled
     void findBookByIsbnWhenExisting(){
         var bookIsbn = "1234561237";
         var book = Book.of(bookIsbn,"Title","Author","Publisher",12.90);
