@@ -38,7 +38,7 @@ public class BookService {
         return bookRepository.findByIsbn(isbn)
                 .map(retrievedBook -> {
                     var bookWithUpdates = new Book(retrievedBook.id(), retrievedBook.version(),
-                            retrievedBook.createdDate(),retrievedBook.lastModifiedDate(),retrievedBook.isbn(), book.title(), book.author(), book.price());
+                            retrievedBook.createdDate(),retrievedBook.lastModifiedDate(),retrievedBook.isbn(), book.title(), book.author(), book.publisher(), book.price());
                     return bookRepository.save(bookWithUpdates);
                 }).orElseGet(()-> addBookToCatalog(book));
     }

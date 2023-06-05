@@ -23,7 +23,7 @@ class BookJsonTests {
 
     @Test
     void testSerialize() throws IOException {
-        var book = Book.of("1234567890", "Title", "Author", 9.90);
+        var book = Book.of("1234567890", "Title", "Author", "PacktPub",9.90);
         var bookInJson = bookJsonTester.write(book);
         assertThat(bookInJson).extractingJsonPathStringValue("@.isbn").isEqualTo(book.isbn());
         assertThat(bookInJson).extractingJsonPathStringValue("@.title").isEqualTo(book.title());

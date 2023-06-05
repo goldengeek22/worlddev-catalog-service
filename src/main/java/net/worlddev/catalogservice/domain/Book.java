@@ -30,9 +30,10 @@ public record Book(
         String title,
         @NotBlank(message = "The book price must be defined.")
         String author,
+        String publisher,
         @Positive(message = "The book price must be greater than zero.")
         Double price) {
-        public static Book of(String isbn,String title,String author,Double price){
-                return new Book(null,0,null,null,isbn,title,author,price);
+        public static Book of(String isbn,String title,String author,String publisher,Double price){
+                return new Book(null,0,null,null,isbn,title,author,publisher,price);
         }
 }
