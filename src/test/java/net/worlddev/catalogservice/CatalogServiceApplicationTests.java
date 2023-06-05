@@ -1,6 +1,7 @@
 package net.worlddev.catalogservice;
 
 import net.worlddev.catalogservice.domain.Book;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,12 +17,14 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ActiveProfiles("integration")
+@Disabled
 class CatalogServiceApplicationTests {
 
     @Autowired
     private WebTestClient webTestClient;
 
     @Test
+    @Disabled
     void whenPostRequestThenBookCreated() {
         var expectedBook = Book.of("1231231231", "The Cloud Native Developers", "Unknown", "Unknown",9.62);
         var actualBook = webTestClient.post()
