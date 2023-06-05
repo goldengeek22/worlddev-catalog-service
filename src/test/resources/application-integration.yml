@@ -1,6 +1,3 @@
 spring:
   datasource:
-    url: jdbc:tc:postgresql://localhost:5445/worlddev_catalog
-  sql:
-    init:
-      mode: always
+    url: jdbc:tc:postgresql:14.4:///

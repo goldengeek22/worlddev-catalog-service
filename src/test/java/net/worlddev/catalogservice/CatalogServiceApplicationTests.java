@@ -24,7 +24,6 @@ class CatalogServiceApplicationTests {
     private WebTestClient webTestClient;
 
     @Test
-    @Disabled
     void whenPostRequestThenBookCreated() {
         var expectedBook = Book.of("1231231231", "The Cloud Native Developers", "Unknown", "Unknown",9.62);
         var actualBook = webTestClient.post()
