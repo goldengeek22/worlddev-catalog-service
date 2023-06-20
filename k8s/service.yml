@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: worlddev-catalog-service
+  labels:
+    app: worlddev-catalog-service
+spec:
+  type: ClusterIP
+  selector:
+    app: worlddev-catalog-service
+  ports:
+    - protocol: TCP
+      port: 9001
+      targetPort: 9001

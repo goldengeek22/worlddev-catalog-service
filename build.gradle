@@ -24,11 +24,11 @@ configurations {
     }
 }
 
-flyway {
+/*flyway {
     url = 'jdbc:postgresql://localhost:5445/worlddev_catalog'
     user = 'user'
     password = 'password'
-}
+}*/
 
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
@@ -57,7 +57,7 @@ bootRun{
 }
 
 bootBuildImage{
-    imageName = "worlddev-".concat(project.name)
+    imageName = "worlddev-".concat(rootProject.name)
     environment = ["BP_JVM_VERSION":"17.*"]
     docker {
         publishRegistry{

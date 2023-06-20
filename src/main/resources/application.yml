@@ -8,6 +8,7 @@ server:
       min-spare: 5 # Minimum number of threads that should be kept running
     accept-count: 20
     max-http-form-post-size: 5MB
+  shutdown: graceful # Enable graceful shutdown
 
 worlddev:
   greeting: Welcome to the local worldDev book catalog
@@ -17,6 +18,8 @@ worlddev:
 spring:
   application:
     name: catalog-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15s # Defines 15s grace period
   config:
     import: "optional:configserver:"
   cloud:
@@ -29,7 +32,7 @@ spring:
         multiplier: 1.1
         initial-interval: 1000
         max-interval: 5000
-      fail-fast: true
+      fail-fast: false
   datasource:
     username: user
     password: password
