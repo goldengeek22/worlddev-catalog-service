@@ -1,5 +1,5 @@
 # WorldDev-catalog-service
-Service for managing catalog of worlddev's bookshop system
+Cloud Native Application for managing catalog of worlddev's bookshop system
 
 ## _Functionalities_
 
@@ -8,3 +8,17 @@ Service for managing catalog of worlddev's bookshop system
 * Add a new book to the catalog
 * Edit information for an existing book
 * Remove a book from the catalog
+  
+## _Tech Stack_
+
+* Java 17
+* Spring Framework 6
+* SpringBoot 3
+* Spring Cloud
+* Docker
+* Kubernetes
+* PostgreSQL
+* FlyWay
+* Gradle
+* Tilt
+* Github Actions
