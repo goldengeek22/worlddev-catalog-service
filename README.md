@@ -1,5 +1,5 @@
 # WorldDev-catalog-service
-Service for managing catalog of worlddev's bookshop system
+Cloud Native Application for managing catalog of worlddev's bookshop system
 
 ## _Functionalities_
 
