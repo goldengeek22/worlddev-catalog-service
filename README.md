@@ -8,7 +8,7 @@ Cloud Native Application for managing catalog of worlddev's bookshop system
 * Add a new book to the catalog
 * Edit information for an existing book
 * Remove a book from the catalog
-  
+
 ## _Tech Stack_
 
 * Java 17
